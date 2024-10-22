@@ -97,3 +97,63 @@ const testNumber = color === "red" ? 5 : 100;
 
 // loading && (<><MyComponent></MyComponent></>)
 console.log(testNumber);
+
+// truthy
+// string
+// non-zero number
+// true
+// any object {}
+// []
+
+
+// falsy
+// ""
+// 0
+// false
+// null
+// undefined
+// NaN
+
+const myVar = null
+
+// const newValue = null ?? 'hello' // null undefined
+// const newValue = [].length > 0 ? 'hello1' : 'hello2' // truthy falsy
+// const newValue = Object.keys({}).length > 0 ? 'hello1' : 'hello2' // truthy falsy
+// console.log(newValue)
+
+const person2 = {
+  name:'John',
+  walk:()=> {
+    // setTimeout(function(){console.log(`${this.name} is walking new...`)}, 3000)
+    // var self = this
+    // setTimeout(function(){console.log(`${self.name} is walking new...`)}, 3000)
+    
+    // setTimeout(() => {console.log(`${this.name} is walking new...`)}, 3000)
+    console.log(`${this.name} is walking...`)
+  }
+}
+
+// person2.walk()
+// this.name = ''
+// const w = person2.walk.bind(person2)
+// w() 
+
+// arrays
+
+// const tags = ['tag1', 'tag2', 'tag3']
+
+// const updatedTags = tags.filter(tag => tag.includes('1'))
+// // console.log(updatedTags)
+// console.log(updatedTags[0])
+
+// const updatedTags = tags.find(tag => tag.includes('1'))
+// console.log(updatedTags)
+
+
+const tags = [
+  {id: 1, value:'tag1'},
+  {id: 2, value:'tag2'},
+  {id: 3, value:'tag3'},
+]
+const updatedTags = tags.find(tag => tag.value.includes('1'))
+console.log(updatedTags)
