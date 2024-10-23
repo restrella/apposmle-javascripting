@@ -43,14 +43,14 @@ const testFunction = () => {
 var k = 5;
 // testFunction()
 
-const person = {
-  name: "John",
-  age: 20,
-  walk: function () {
-    console.log(this.name);
-    // return 'inside walk function'
-  },
-};
+// const person = {
+//   name: "John",
+//   age: 20,
+//   walk: function () {
+//     console.log(this.name);
+//     // return 'inside walk function'
+//   },
+// };
 
 // const attr = 'name'
 // const attr = 'age'
@@ -155,5 +155,131 @@ const tags = [
   {id: 2, value:'tag2'},
   {id: 3, value:'tag3'},
 ]
-const updatedTags = tags.find(tag => tag.value.includes('1'))
-console.log(updatedTags)
+// const updatedTags = tags.find(tag => tag.value.includes('1'))
+// console.log(updatedTags)
+
+// delete - pessimistic update, optimistic update
+// const deleteTagById = (id) =>  tags.filter(tag => tag.id !== id)
+// const newTags = deleteTagById(3)
+
+// const updatedTags = tags.map(tag => `my tag: ${tag.value}`)
+// const updatedTags = tags.map(tag => `<li>${tag.value}</li>`)
+// const updatedTags = tags.map((tag, index)=> index % 2 === 0 ? `<li>${tag.value}</li>`:`black`)
+// console.log(updatedTags)
+
+// destructuring
+
+const address = {
+  city: 'Pasig',
+  region: 'NCR',
+  street: 'Springs st.'
+}
+
+// const city = address.city
+// const region = address.region
+// const street = address.street
+
+// const city = 'Davao City'
+// const {city:cityValueOfObject, region} = address
+
+// console.log(city)
+// console.log(cityValueOfObject)
+
+// const logAddress = ({city:cty, region, street}) => {
+//   // const {city, region, street} = address
+//   // console.log(`My city is: ${address.city}`)
+//   console.log(`My city is: ${cty}`)
+//   console.log(`My region is: ${region}`)
+//   console.log(`My street is: ${street}`)
+// }
+
+// logAddress(address)
+
+const numbers = [1, 2, 3]
+const numbersAgain = [4,5,6]
+
+// const combine = numbers + numbersAgain
+// const combine = numbers.concat(7).concat(numbersAgain)
+
+
+// const combine1 = [...numbers,7,...numbersAgain]
+// console.log(combine1)
+
+// const l = [1,2,3]
+// // const b = l
+
+// // const b = Object.assign({}, l)
+// const b = [...l]
+
+// delete b[0]
+// b[1] = 'newt'
+
+// console.log(b)
+// console.log(l)
+
+// spread operator on object
+const person = {
+  id:3,
+  name:'jayson monroe'
+}
+
+const personDetails = {
+  // id:3,
+  age:21
+}
+
+// const combi = {...person, location:'Sampaloc',...personDetails}
+// combi.gender = 'Male'
+// console.log(combi)
+
+const {city, ...restProperties} = address
+
+// console.log('rest', restProperties)
+
+const logPerson = ({id, ...otherDetails}) => {
+  console.log(otherDetails)
+}
+
+// logPerson(person)
+
+class Person {
+  constructor(name) {
+    this.name = name
+  }
+  walk() {
+    console.log(`${this.name} is walking`)
+  }
+}
+
+const p = new Person("James")
+p.walk()
+
+
+class Trainer extends Person {
+  constructor(name, topic) {
+    super(name)
+    this.topic = topic
+  }
+  train() {
+    console.log(`${this.name} is training ${this.topic}`)
+  }
+}
+
+const trainor = new Trainer("Jose", "Karate")
+// trainor.train()
+
+// named export, default export
+
+export const name = 'Jake Jones'
+
+export default "Defalt Jake Joson"
+
+export function login() {
+  console.log('export logging in...')
+}
+export function register() {
+  console.log('export registering in...')
+}
+export function logout() {
+  console.log('export logging out...')
+}
